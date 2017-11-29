@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Helpers\CoinUpdater;
+// use App\Helpers\CoinUpdater;
 
 class Kernel extends ConsoleKernel
 {
@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        // 'App\Console\Commands\Inspire',
+        Commands\CoinUpdater::class,
     ];
 
     // private $coinUpdater;
@@ -31,13 +32,13 @@ class Kernel extends ConsoleKernel
     
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-        $schedule->call(function () {
-            $coinUpdater = new CoinUpdater();
-            $coinUpdater->update();
-            error_log('aaaaa', 0);
-        })->everyMinute();
+        $schedule->command('CoinUpdater:update')
+                 ->everyMinute();
+        // $schedule->call(function () {
+        //     $coinUpdater = new CoinUpdater();
+        //     $coinUpdater->update();
+        //     error_log('aaaaa', 0);
+        // })->everyMinute();
     }
 
     /**
