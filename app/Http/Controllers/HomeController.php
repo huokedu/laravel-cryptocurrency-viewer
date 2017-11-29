@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use AndreasGlaser\PPC\PPC;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // $pcc = new PPC();
+        // $result = $pcc->getTicker();
+        
+        // print_r(count($result->decoded));
+        // var_dump(gettype($result));
+        error_log('ok');
+        // return view('home');
     }
 }
