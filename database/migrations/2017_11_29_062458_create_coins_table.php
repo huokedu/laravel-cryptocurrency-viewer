@@ -14,7 +14,7 @@ class CreateCoinsTable extends Migration
     public function up()
     {
         Schema::create('coins', function (Blueprint $table) {
-            $table->string('name')->primary;
+            $table->string('name');
             $table->integer('id');
             $table->double('last');
             $table->double('lowestAsk');
@@ -26,6 +26,8 @@ class CreateCoinsTable extends Migration
             $table->double('high24hr');
             $table->double('low24hr');
             $table->timestamps();
+            $table->primary('name');
+            $table->unique('name');
         });
     }
 
