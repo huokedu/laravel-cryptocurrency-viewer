@@ -13,7 +13,7 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <table class="table-striped table-bordered table-hover">
+                    <table class="table-striped table-bordered table-hover table-ticker">
                         <thead>
                             <tr>
                                 <th>name</th>
@@ -30,15 +30,15 @@
                         <tbody>
                         @foreach ($coins as $coin)
                             <tr>
-                                <th>{{ $coin->name }}</th>
-                                <th>{{ $coin->id }}</th>
-                                <th>{{ number_format($coin->last, 10) }}</th>
-                                <th>{{ number_format($coin->lowestAsk, 10) }}</th>
-                                <th>{{ number_format($coin->highestBid, 10) }}</th>
-                                <th>{{ number_format($coin->baseVolume, 10) }}</th>
-                                <th>{{ number_format($coin->quoteVolume, 10) }}</th>
-                                <th>{{ number_format($coin->high24hr, 10) }}</th>
-                                <th>{{ number_format($coin->low24hr, 10) }}</th>
+                                <td>{{ $coin->name }}</td>
+                                <td>{{ $coin->id }}</td>
+                                <td>{{ number_format($coin->last, 10) }}</td>
+                                <td>{{ number_format($coin->lowestAsk, 10) }}</td>
+                                <td>{{ number_format($coin->highestBid, 10) }}</td>
+                                <td>{{ number_format($coin->baseVolume, 10) }}</td>
+                                <td>{{ number_format($coin->quoteVolume, 10) }}</td>
+                                <td>{{ number_format($coin->high24hr, 10) }}</td>
+                                <td>{{ number_format($coin->low24hr, 10) }}</td>
                             </tr>
                         @endforeach
                         </tbody>
