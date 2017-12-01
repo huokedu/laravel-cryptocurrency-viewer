@@ -21,6 +21,7 @@
                                 <th>last</th>
                                 <th>lowestAsk</th>
                                 <th>highestBid</th>
+                                <th>percentChange</th>
                                 <th>baseVolume</th>
                                 <th>quoteVolume</th>
                                 <th>high24hr</th>
@@ -29,21 +30,21 @@
                         </thead>
                         <tbody>
                         @foreach ($coins as $coin)
-                            <tr>
+                            <tr id="coin{{$coin->id}}">
                                 <td>{{ $coin->name }}</td>
                                 <td>{{ $coin->id }}</td>
-                                <td>{{ number_format($coin->last, 10) }}</td>
-                                <td>{{ number_format($coin->lowestAsk, 10) }}</td>
-                                <td>{{ number_format($coin->highestBid, 10) }}</td>
-                                <td>{{ number_format($coin->baseVolume, 10) }}</td>
-                                <td>{{ number_format($coin->quoteVolume, 10) }}</td>
-                                <td>{{ number_format($coin->high24hr, 10) }}</td>
-                                <td>{{ number_format($coin->low24hr, 10) }}</td>
+                                <td class="last">{{ number_format($coin->last, 10) }}</td>
+                                <td class="lowestAsk">{{ number_format($coin->lowestAsk, 10) }}</td>
+                                <td class="highestBid">{{ number_format($coin->highestBid, 10) }}</td>
+                                <td class="percentChange">{{ number_format($coin->percentChange, 10)}}</td>
+                                <td class="baseVolume">{{ number_format($coin->baseVolume, 2) }}</td>
+                                <td class="quoteVolume">{{ number_format($coin->quoteVolume, 2) }}</td>
+                                <td class="high24hr">{{ number_format($coin->high24hr, 10) }}</td>
+                                <td class="low24hr">{{ number_format($coin->low24hr, 10) }}</td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-                    
                 </div>
             </div>
         </div>
