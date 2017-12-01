@@ -60,29 +60,58 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 43);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 43:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
-module.exports = __webpack_require__(2);
+module.exports = __webpack_require__(44);
 
 
 /***/ }),
-/* 1 */
+
+/***/ 44:
 /***/ (function(module, exports) {
 
 console.log('start');
-console.log('start');
 
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
+function WebSocketTest() {
+   if ("WebSocket" in window) {
+      alert("WebSocket is supported by your Browser!");
 
-// removed by extract-text-webpack-plugin
+      // Let us open a web socket
+      var ws = new WebSocket("wss://api2.poloniex.com");
+
+      ws.onopen = function () {
+         // Web Socket is connected, send data using send()
+         ws.send("{\"command\": \"subscribe\", \"channel\": \"1002\"}");
+         console.log("Message is sent...");
+      };
+
+      ws.onmessage = function (evt) {
+         var received_msg = evt.data;
+         console.log("Message is received..." + received_msg);
+      };
+
+      ws.onclose = function () {
+         // websocket is closed.
+         alert("Connection is closed...");
+      };
+
+      window.onbeforeunload = function (event) {
+         socket.close();
+      };
+   } else {
+      // The browser doesn't support WebSocket
+      alert("WebSocket NOT supported by your Browser!");
+   }
+}
+
+WebSocketTest();
 
 /***/ })
-/******/ ]);
+
+/******/ });

@@ -6,10 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=7.0",
+        "andreas-glaser/poloniex-php-client": "dev-master",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0",
-        "ratchet/pawl": "^0.3.1",
-        "textalk/websocket": "^1.2"
+        "laravel/tinker": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
