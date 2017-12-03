@@ -79,13 +79,13 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 
- <!-- TradingView Widget BEGIN -->
+<!-- TradingView Widget BEGIN -->
 <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 <script type="text/javascript">
 new TradingView.widget({
   "width": 980,
   "height": 610,
-  "symbol": "BITFINEX:BTCUSD",
+  "symbol": "ITBIT:BTCUSD",
   "interval": "D",
   "timezone": "Etc/UTC",
   "theme": "Light",
@@ -97,6 +97,9 @@ new TradingView.widget({
   "hideideas": true
 });
 </script>
+<!-- TradingView Widget END -->
+<!-- TradingView Widget END -->
+
 <!-- TradingView Widget END -->
 
 

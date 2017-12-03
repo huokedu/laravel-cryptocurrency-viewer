@@ -47,7 +47,7 @@ function UpdateCoinInfo(msg) {
   let info = JSON.parse(msg);
   let coinInfo = info[2]
   if (coinInfo) {
-    // console.log(coinInfo);
+    console.log(coinInfo);
     let infoObj = {
       id: coinInfo[0],
       last: coinInfo[1],
