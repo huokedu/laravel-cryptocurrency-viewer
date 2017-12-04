@@ -4,25 +4,25 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
-use App\Coin;
+use App\PoloniexCoin;
 use Carbon\Carbon;
 use AndreasGlaser\PPC\PPC;
 
-class CoinUpdater extends Command
+class PoloniexCoinUpdater extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'CoinUpdater:update';
+    protected $signature = 'PoloniexCoinUpdater:update';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Update Coin';
+    protected $description = 'Update Poloniex Coin';
 
     /**
      * Create a new command instance.
@@ -45,9 +45,9 @@ class CoinUpdater extends Command
         $result = $pcc->getTicker();
         $coinArray = $result->decoded;
         foreach($coinArray as $key => $value) {
-            $coin = Coin::where('name', $key)->first();
+            $coin = PoloniexCoin::where('name', $key)->first();
             if ($coin === NULL) {
-                $coin = new Coin;
+                $coin = new PoloniexCoin;
                 $coin->name = $key;
             }
 

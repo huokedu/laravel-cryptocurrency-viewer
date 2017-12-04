@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Coin extends Model
+class PoloniexCoin extends Model
 {
     //
 }
