@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8784e385678293684476813edfbe2b1",
+    "content-hash": "1f5ae21027eaba09241173c7c997bdd2",
     "packages": [
         {
             "name": "andreas-glaser/php-helpers",
@@ -1072,44 +1072,6 @@
                 "random"
             ],
             "time": "2017-09-27T21:40:39+00:00"
-        },
-        {
-            "name": "pepijnolivier/laravel-bittrex",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pepijnolivier/laravel-bittrex.git",
-                "reference": "2c3e530600b054fa6b74a6fa33833a5fca72445b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pepijnolivier/laravel-bittrex/zipball/2c3e530600b054fa6b74a6fa33833a5fca72445b",
-                "reference": "2c3e530600b054fa6b74a6fa33833a5fca72445b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "laravel/framework": ">=5.3",
-                "php": ">=7.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pepijnolivier\\Bittrex\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pepijn Olivier",
-                    "email": "olivier.pepijn@gmail.com"
-                }
-            ],
-            "description": "Bittrex API wrapper for Laravel",
-            "time": "2017-08-28T16:52:29+00:00"
         },
         {
             "name": "psr/http-message",
