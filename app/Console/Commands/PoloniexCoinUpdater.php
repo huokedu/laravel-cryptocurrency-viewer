@@ -64,6 +64,6 @@ class PoloniexCoinUpdater extends Command
             $coin->save();
         }
 
-        Log::info('cron job is at ' . Carbon::now());
+        Log::info('poloniex cron job is at ' . Carbon::now());
     }
 }

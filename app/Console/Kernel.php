@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         // 'App\Console\Commands\Inspire',
         Commands\PoloniexCoinUpdater::class,
+        Commands\BittrexCoinUpdater::class,
     ];
 
     // private $coinUpdater;
@@ -33,6 +34,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('PoloniexCoinUpdater:update')
+                 ->everyMinute();
+        $schedule->command('BittrexCoinUpdater:update')
                  ->everyMinute();
         // $schedule->call(function () {
         //     $coinUpdater = new CoinUpdater();

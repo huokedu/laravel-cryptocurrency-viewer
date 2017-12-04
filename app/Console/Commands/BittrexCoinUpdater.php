@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 class BittrexCoinUpdater extends Command
 {
@@ -38,5 +40,6 @@ class BittrexCoinUpdater extends Command
     public function handle()
     {
         //
+        Log::info('bittrex cron job is at ' . Carbon::now());
     }
 }
