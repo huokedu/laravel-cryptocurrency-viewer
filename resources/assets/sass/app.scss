@@ -8,14 +8,41 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-.table-ticker {
+#table-ticker {
+  width: 100%;
   th {
     text-align: center;
     padding: 5px;
   }
+  
   td {
     text-align: right;
-    // font-size: 30px;
     padding: 5px;
+
+    &.logo {
+      text-align: center;
+    }
+    &.name {
+      text-align: center;
+    }
+  }
+
+  .logo-wrapper {
+    width: 80px;
+    height: 80px;
+    position: relative;
+
+    img {
+      max-height: 100%;  
+      max-width: 100%; 
+      width: auto;
+      height: auto;
+      position: absolute;  
+      top: 0;  
+      bottom: 0;  
+      left: 0;  
+      right: 0;  
+      margin: auto;
+    }
   }
 }

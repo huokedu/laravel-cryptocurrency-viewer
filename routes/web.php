@@ -16,10 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index');
+Route::get('/bittrex/getmarketsummaries', 'BittrexController@getAllCoinInfo');
+Route::get('/bittrex/tradingview/{marketName}', 'BittrexController@showTradingView');
+
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

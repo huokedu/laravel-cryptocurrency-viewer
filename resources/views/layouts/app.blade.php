@@ -79,7 +79,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 
-<!-- TradingView Widget BEGIN -->
+<!-- 
 <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 <script type="text/javascript">
 new TradingView.widget({
@@ -96,11 +96,7 @@ new TradingView.widget({
   "allow_symbol_change": true,
   "hideideas": true
 });
-</script>
-<!-- TradingView Widget END -->
-<!-- TradingView Widget END -->
-
-<!-- TradingView Widget END -->
+</script> -->
 
 
 </body>

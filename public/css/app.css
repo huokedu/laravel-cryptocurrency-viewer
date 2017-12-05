@@ -8350,13 +8350,44 @@ button.close {
   }
 }
 
-.table-ticker th {
+#table-ticker {
+  width: 100%;
+}
+
+#table-ticker th {
   text-align: center;
   padding: 5px;
 }
 
-.table-ticker td {
+#table-ticker td {
   text-align: right;
   padding: 5px;
+}
+
+#table-ticker td.logo {
+  text-align: center;
+}
+
+#table-ticker td.name {
+  text-align: center;
+}
+
+#table-ticker .logo-wrapper {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+#table-ticker .logo-wrapper img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 

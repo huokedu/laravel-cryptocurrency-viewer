@@ -179,6 +179,7 @@ return [
 
         // Pepijnolivier\Bittrex\BittrexServiceProvider::class,
         // AngelKurten\Bittrex\BittrexServiceProvider::class,
+        // Barryvdh\Cors\ServiceProvider::class
     ],
 
     /*
