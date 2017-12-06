@@ -6,7 +6,6 @@
     "type": "project",
     "require": {
         "php": ">=7.0",
-        "andreas-glaser/poloniex-php-client": "dev-master",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0"
     },

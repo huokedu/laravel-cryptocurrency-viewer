@@ -41,9 +41,36 @@ class PoloniexCoinUpdater extends Command
      */
     public function handle()
     {
-        $pcc = new PPC();
-        $result = $pcc->getTicker();
-        $coinArray = $result->decoded;
+        $ch = curl_init(); 
+        
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, "https://poloniex.com/public?command=returnTicker"); 
+
+        //return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+
+        // $output contains the output string 
+        $coinArray = json_decode(curl_exec($ch)); 
+
+        // close curl resource to free up system resources 
+        curl_close($ch);
+
+        $savedCoins = PoloniexCoin::all();
+        foreach($savedCoins as $savedCoin) {
+            $deleted = true;
+            foreach($coinArray as $key => $value) {
+                if ($savedCoin->name === $key) {
+                    // print_r($key.'<br/>');
+                    $deleted = false;
+                }
+            }
+
+            // doesn't exist in live data
+            if ($deleted) {
+                $savedCoin->delete();
+            }
+        }
+
         foreach($coinArray as $key => $value) {
             $coin = PoloniexCoin::where('name', $key)->first();
             if ($coin === NULL) {
@@ -51,16 +78,16 @@ class PoloniexCoinUpdater extends Command
                 $coin->name = $key;
             }
 
-            $coin->id = $value['id'];
-            $coin->last = $value['last'];
-            $coin->lowestAsk = $value['lowestAsk'];
-            $coin->highestBid = $value['highestBid'];
-            $coin->percentChange = $value['percentChange'];
-            $coin->baseVolume = $value['baseVolume'];
-            $coin->quoteVolume = $value['quoteVolume'];
-            $coin->isFrozen = $value['isFrozen'];
-            $coin->high24hr = $value['high24hr'];
-            $coin->low24hr = $value['low24hr'];
+            $coin->id = $value->id;
+            $coin->last = $value->last;
+            $coin->lowestAsk = $value->lowestAsk;
+            $coin->highestBid = $value->highestBid;
+            $coin->percentChange = $value->percentChange;
+            $coin->baseVolume = $value->baseVolume;
+            $coin->quoteVolume = $value->quoteVolume;
+            $coin->isFrozen = $value->isFrozen;
+            $coin->high24hr = $value->high24hr;
+            $coin->low24hr = $value->low24hr;
             $coin->save();
         }
 

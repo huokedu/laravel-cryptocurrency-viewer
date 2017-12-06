@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\BittrexCoin;
+use App\PoloniexCoin;
 
-class BittrexController extends Controller
+class PoloniexController extends Controller
 {
 
     public function __construct()
@@ -21,19 +21,19 @@ class BittrexController extends Controller
      */
 
     public function index() {
-        $coins = BittrexCoin::all();
-        return view('bittrex')->with('coins', $coins);
+        $coins = PoloniexCoin::all();
+        return view('poloniex')->with('coins', $coins);
     }
 
-    public function getAllCoinInfo()
-    {
-        $coins = BittrexCoin::all();
-        return response()->json(json_encode($coins));
-    }
+    // public function getAllCoinInfo()
+    // {
+    //     $coins = BittrexCoin::all();
+    //     return response()->json(json_encode($coins));
+    // }
 
     public function showTradingView($marketName) {
-        $splitNames = explode("-", $marketName);
-        $symbol = "BITTREX:" . $splitNames[1] . $splitNames[0];
+        $splitNames = explode("_", $marketName);
+        $symbol = "POLONIEX:" . $splitNames[1] . $splitNames[0];
         return view('tradingview')->with('symbol', $symbol);
     }
 }

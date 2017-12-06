@@ -16,8 +16,13 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index');
+Route::get('/home/test', 'HomeController@test');
+
 Route::get('/bittrex', 'BittrexController@index');
 Route::get('/bittrex/getmarketsummaries', 'BittrexController@getAllCoinInfo');
 Route::get('/bittrex/tradingview/{marketName}', 'BittrexController@showTradingView');
+
+Route::get('/poloniex', 'PoloniexController@index');
+Route::get('/poloniex/tradingview/{marketName}', 'PoloniexController@showTradingView');
 
 Auth::routes();

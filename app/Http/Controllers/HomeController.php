@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use App\BittrexCoin;
+use App\PoloniexCoin;
+use AndreasGlaser\PPC\PPC;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('cors');
+        // $this->middleware('cors');
     }
 
     /**
@@ -26,8 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $coins = BittrexCoin::all();
+        return view('home');
+    }
 
-        return view('home')->with('coins', $coins);
+    public function test() {
+        
     }
 }

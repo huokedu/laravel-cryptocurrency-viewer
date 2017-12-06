@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class PoloniexCoin extends Model
 {
     //
+    protected $primaryKey = 'name';
+    public $incrementing = false;
 }
