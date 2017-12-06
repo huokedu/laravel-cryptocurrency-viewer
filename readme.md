@@ -1,10 +1,10 @@
 <p align="center">
   <img src="https://laravel.com/assets/img/components/logo-laravel.svg">
 </p>
-<p>
+<p align="center">
   <img src="https://poloniex.com/images/theme_light/poloniex.png" alt="Poloniex Digital Asset Exchange">
 </p>
-<p>
+<p align="center">
   <img src="https://bittrex.com/Content/img/logos/bittrex-logo-white-no-tagline.png">
 </p>
 
