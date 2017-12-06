@@ -68,8 +68,44 @@
 /***/ 43:
 /***/ (function(module, exports, __webpack_require__) {
 
-(function webpackMissingModule() { throw new Error("Cannot find module \"/Volumes/WORK/laravel/laravel-cryptocurrency-viewer/resources/assets/js/main.js\""); }());
+module.exports = __webpack_require__(44);
 
+
+/***/ }),
+
+/***/ 44:
+/***/ (function(module, exports) {
+
+console.log('start');
+
+function GetBittrexInfo() {
+  console.log('update bittrex info');
+  $.ajax({
+    type: 'GET',
+    url: "/bittrex/getmarketsummaries",
+    contentType: 'application/json',
+    success: function success(result) {
+      UpdateCoinInfo(result);
+    }
+  });
+  setTimeout(GetBittrexInfo, 60000);
+}
+
+GetBittrexInfo();
+
+function UpdateCoinInfo(msg) {
+  var coins = JSON.parse(msg);
+  for (var i = 0; i < coins.length; i++) {
+    var coin = coins[i];
+    var elementId = '#table-ticker #' + coin.MarketName;
+    $(elementId + ' > .high').text(coin.High.toFixed(10));
+    $(elementId + ' > .low').text(coin.Low.toFixed(10));
+    $(elementId + ' > .last').text(coin.Last.toFixed(10));
+    $(elementId + ' > .volume').text(coin.Volume.toFixed(10));
+    $(elementId + ' > .openbuyorders').text(coin.OpenBuyOrders);
+    $(elementId + ' > .opensellorders').text(coin.OpenSellOrders);
+  }
+};
 
 /***/ })
 

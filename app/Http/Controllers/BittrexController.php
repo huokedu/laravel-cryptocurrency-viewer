@@ -13,6 +13,12 @@ class BittrexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function index() {
+        $coins = BittrexCoin::all();
+        return view('bittrex')->with('coins', $coins);
+    }
+
     public function getAllCoinInfo()
     {
         $coins = BittrexCoin::all();
