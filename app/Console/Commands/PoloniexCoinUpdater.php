@@ -71,24 +71,42 @@ class PoloniexCoinUpdater extends Command
             }
         }
 
-        foreach($coinArray as $key => $value) {
-            $coin = PoloniexCoin::where('name', $key)->first();
-            if ($coin === NULL) {
-                $coin = new PoloniexCoin;
-                $coin->name = $key;
-            }
+        $coins = PoloniexCoin::all();
 
-            $coin->id = $value->id;
-            $coin->last = $value->last;
-            $coin->lowestAsk = $value->lowestAsk;
-            $coin->highestBid = $value->highestBid;
-            $coin->percentChange = $value->percentChange;
-            $coin->baseVolume = $value->baseVolume;
-            $coin->quoteVolume = $value->quoteVolume;
-            $coin->isFrozen = $value->isFrozen;
-            $coin->high24hr = $value->high24hr;
-            $coin->low24hr = $value->low24hr;
-            $coin->save();
+        foreach($coinArray as $key => $value) {
+            $find = false;
+            foreach($coins as $coin) {
+                if ($key === $coin->name) {
+                    $find = true;
+                    $coin->id = $value->id;
+                    $coin->last = $value->last;
+                    $coin->lowestAsk = $value->lowestAsk;
+                    $coin->highestBid = $value->highestBid;
+                    $coin->percentChange = $value->percentChange;
+                    $coin->baseVolume = $value->baseVolume;
+                    $coin->quoteVolume = $value->quoteVolume;
+                    $coin->isFrozen = $value->isFrozen;
+                    $coin->high24hr = $value->high24hr;
+                    $coin->low24hr = $value->low24hr;
+                    $coin->save();
+                    break;
+                }
+            }
+            if (!$find) {
+                $newCoin = new PoloniexCoin;
+                $newCoin->name = $key;
+                $newCoin->id = $value->id;
+                $newCoin->last = $value->last;
+                $newCoin->lowestAsk = $value->lowestAsk;
+                $newCoin->highestBid = $value->highestBid;
+                $newCoin->percentChange = $value->percentChange;
+                $newCoin->baseVolume = $value->baseVolume;
+                $newCoin->quoteVolume = $value->quoteVolume;
+                $newCoin->isFrozen = $value->isFrozen;
+                $newCoin->high24hr = $value->high24hr;
+                $newCoin->low24hr = $value->low24hr;
+                $newCoin->save();
+            }
         }
 
         Log::info('poloniex cron job is at ' . Carbon::now());
