@@ -1,11 +1,14 @@
 <p align="center">
   <img src="https://laravel.com/assets/img/components/logo-laravel.svg">
+</p>
+<p>
+  <img src="https://bittrex.com/Content/img/logos/bittrex-logo-white-no-tagline.png">
   <img src="https://poloniex.com/images/theme_light/poloniex.png" alt="Poloniex Digital Asset Exchange">
 </p>
 
 ## About Project
 
-Simple Laravel Application for Poloniex restful API & websocket
+Simple Laravel Application for Poloniex & Bittrex's restful API & websocket
 
 ## Stack
 
